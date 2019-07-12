@@ -1,7 +1,16 @@
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class Intro extends Application{
@@ -11,13 +20,28 @@ public class Intro extends Application{
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		Button button = new Button();
-		button.setText("click here");
-		StackPane root = new StackPane();
-		root.getChildren().add(button);
-		primaryStage.setScene(new Scene(root,300,250));
-		primaryStage.setTitle("MY first JavaFx Code");
-		primaryStage.show();
+		// create and configure user interface controls
+		
+    Label namehead = new Label("Enter your name");
+    TextField nameText= new TextField();
+    Button button = new Button();
+    button.setText("click me");
+    //Make a layout manager
+    VBox root = new VBox(); 
+    
+  		//Add controls to the layout manager
+    root.getChildren().add(namehead);
+    root.getChildren().add(nameText);
+    root.getChildren().add(button);
+       //add layout manager to scene
+    Scene scene = new Scene(root, 300, 250);
+  		//add scene to a stage
+    primaryStage.setScene(scene);
+    primaryStage.setTitle("example");
+    
+    
+  		//show the app
+  		primaryStage.show();
 	}
 	
 }
