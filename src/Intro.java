@@ -23,21 +23,33 @@ public class Intro extends Application{
 		// create and configure user interface controls
 		
     Label namehead = new Label("Enter your name");
+    Label result = new Label();
     TextField nameText= new TextField();
     Button button = new Button();
     button.setText("click me");
+    button.setOnAction(new EventHandler<ActionEvent>() {
+        @Override
+        public void handle(ActionEvent e) {
+            // Logic for what should happen when you push button
+  result.setText(nameText.getText());
+        }
+    });
+    
+    
     //Make a layout manager
     VBox root = new VBox(); 
-    
+    root.setSpacing(10);
   		//Add controls to the layout manager
     root.getChildren().add(namehead);
     root.getChildren().add(nameText);
     root.getChildren().add(button);
+    root.getChildren().add(result);
        //add layout manager to scene
     Scene scene = new Scene(root, 300, 250);
   		//add scene to a stage
     primaryStage.setScene(scene);
     primaryStage.setTitle("example");
+   
     
     
   		//show the app
